@@ -1,0 +1,12 @@
+{
+  "users": [
+      {
+          "id": "apple", 
+          "pw": "abcd"
+      },
+      {
+          "id": "banana", 
+          "pw": "abcd"
+      }
+  ]
+}
