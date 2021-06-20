@@ -1,21 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import {
+  StatusBar,
+  View,
+  StyleSheet,
+  SafeAreaView,
+  Dimensions,
+  TouchableWithoutFeedback,
+  Text,
+} from "react-native";
+import { Provider } from "react-redux";
+import BotNavigator from "./Router/BotNavigator";
+import store from "./store";
+
+const statusBarColor = "#c0c0c0";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <StatusBar backgroundColor={statusBarColor}/>
+      <BotNavigator />
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
