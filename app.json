@@ -1,0 +1,12 @@
+{
+  "name": "VoteClassing",
+  "displayName": "VoteClassing",
+  "expo": {
+    "name": "VoteClassing",
+    "slug": "VoteClassing",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
