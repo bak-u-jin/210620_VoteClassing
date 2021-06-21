@@ -29,7 +29,6 @@ function OptionBox({ store, option, index, ChooseOption }) {
         )}
         <Text style={styles.optionText}>{option}</Text>
       </View>
-      
     </TouchableWithoutFeedback>
   );
 }

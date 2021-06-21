@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { TouchableWithoutFeedback, View, Text, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import globalStyles from "../Components/globalStyles";
-import OptionBox from "./OptionBox";
 import { chooseVote } from "../store";
+
+import OptionBox from "./OptionBox";
+import SelectBtn from "./SelectBtn";
 
 function VoteBox({ store, ChooseVote, vote, index }) {
   const [toggleBox, SetToggleBox] = useState(false);
@@ -11,7 +13,7 @@ function VoteBox({ store, ChooseVote, vote, index }) {
   const { id, title, options } = vote;
 
   let optionsText = options.map((option, index) => (
-    <OptionBox option={option}  index={index} />
+    <OptionBox option={option} index={index} />
   ));
 
   function VoteBoxPressIn() {
@@ -37,7 +39,12 @@ function VoteBox({ store, ChooseVote, vote, index }) {
         ]}
       >
         <Text style={styles.title}>{title}</Text>
-        {index == store.chooseVote && optionsText}
+        {index == store.chooseVote && (
+          <>
+            {optionsText}
+            <SelectBtn title={title} />
+          </>
+        )}
       </View>
     </TouchableWithoutFeedback>
   );

@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { connect } from "react-redux";
-import { setLogin, setLoginBtnSz, setLoginFail } from "../store";
+import { setLogin, setLoginFail } from "../store";
 import axios from "axios";
 
 const btnColor = "#77ACF1";
 
-function LoginBtn({ store, SetLoginBtnSz, SetLogin, SetLoginFail }) {
+function LoginBtn({ store, SetLogin, SetLoginFail }) {
+  const [btnSize, SetBtnSize] = useState(1);
   async function LoginBtnPressIn() {
-    SetLoginBtnSz(0.98);
+    SetBtnSize(0.98);
     await axios
       .get(`http://localhost:3000/users?id=${store.id}&pw=${store.pw}`)
       .then((res) => {
@@ -22,7 +23,7 @@ function LoginBtn({ store, SetLoginBtnSz, SetLogin, SetLoginFail }) {
   }
 
   function LoginBtnPressOut() {
-    SetLoginBtnSz(1);
+    SetBtnSize(1);
   }
 
   return (
@@ -31,7 +32,7 @@ function LoginBtn({ store, SetLoginBtnSz, SetLogin, SetLoginFail }) {
       onPressOut={LoginBtnPressOut}
     >
       <View
-        style={[styles.loginBtn, { transform: [{ scale: store.loginBtnSz }] }]}
+        style={[styles.loginBtn, { transform: [{ scale: btnSize }] }]}
       >
         <Text style={styles.loginText}>로그인</Text>
       </View>
@@ -63,7 +64,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    SetLoginBtnSz: (size) => dispatch(setLoginBtnSz(size)),
     SetLogin: (isLogin) => dispatch(setLogin(isLogin)),
     SetLoginFail: (isLoginFail) => dispatch(setLoginFail(isLoginFail)),
   };

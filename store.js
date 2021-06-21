@@ -27,6 +27,7 @@ const store = createSlice({
         loginBtnSz: action.payload,
       };
     },
+    
     setLogin: (state, action) => {
       if (action.payload) {
         return {

@@ -13,17 +13,41 @@
     {
       "id": "apple",
       "title": "color",
-      "options": ["blue", "red", "yellow"]
+      "options": [
+        "blue",
+        "red",
+        "yellow"
+      ]
     },
     {
       "id": "banana",
       "title": "food",
-      "options": ["meat", "pizza", "chicken"]
+      "options": [
+        "meat",
+        "pizza",
+        "chicken"
+      ]
     },
     {
       "id": "cat",
       "title": "time",
-      "options": ["morning", "night", "afternoon"]
+      "options": [
+        "morning",
+        "night",
+        "afternoon"
+      ]
+    }
+  ],
+  "result": [
+    {
+      "2": 1,
+      "id": "color"
+    },
+    {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "id": "food"
     }
   ]
 }

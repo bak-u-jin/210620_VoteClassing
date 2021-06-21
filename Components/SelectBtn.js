@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { connect } from "react-redux";
 import { setLogin, setLoginBtnSz, setLoginFail } from "../store";
@@ -6,23 +6,28 @@ import axios from "axios";
 
 const btnColor = "#77ACF1";
 
-function LoginBtn({ store, SetLoginBtnSz, SetLogin, SetLoginFail }) {
-  async function LoginBtnPressIn() {
-    SetLoginBtnSz(0.98);
-    await axios
-      .get(`http://localhost:3000/users?id=${store.id}&pw=${store.pw}`)
-      .then((res) => {
-        if (res.data[0] === undefined) {
-          SetLoginFail(true);
-        } else {
-          SetLogin(true);
-        }
-      })
-      .catch((err) => console.log(err));
+function SelectBtn({ store, title }) {
+  const [btnSize, SetBtnSize] = useState(1);
+
+  function LoginBtnPressIn() {
+    SetBtnSize(0.98);
   }
 
-  function LoginBtnPressOut() {
-    SetLoginBtnSz(1);
+  async function LoginBtnPressOut() {
+    SetBtnSize(1);
+    let voteSum;
+    await axios
+      .get(`http://localhost:3000/result/${title}`)
+      .then((res) => {
+        voteSum = res.data[`${store.chooseOption}`] + 1;
+        if (!res.data[`${store.chooseOption}`]) voteSum = 1;
+      })
+      .catch((err) => console.log(err));
+
+    const ballot = { [`${store.chooseOption}`]: voteSum };
+    await axios
+      .patch(`http://localhost:3000/result/${title}`, ballot)
+      .catch((err) => console.log(err));
   }
 
   return (
@@ -30,10 +35,8 @@ function LoginBtn({ store, SetLoginBtnSz, SetLogin, SetLoginFail }) {
       onPressIn={LoginBtnPressIn}
       onPressOut={LoginBtnPressOut}
     >
-      <View
-        style={[styles.loginBtn, { transform: [{ scale: store.loginBtnSz }] }]}
-      >
-        <Text style={styles.loginText}>로그인</Text>
+      <View style={[styles.loginBtn, { transform: [{ scale: btnSize }] }]}>
+        <Text style={styles.loginText}>투표하기</Text>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -69,4 +72,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginBtn);
+export default connect(mapStateToProps, mapDispatchToProps)(SelectBtn);

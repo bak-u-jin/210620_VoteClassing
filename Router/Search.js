@@ -18,8 +18,6 @@ function Search() {
       .catch((err) => console.log(err));
     setMenuList(votes.map((vote, index) => <VoteBox vote={vote} index={index}></VoteBox>));
   }
-  // const menus = ["Menu1", "Menu2", "Menu3", "Menu4"];
-  // const menuList = menus.map((menu, index) => (<li key={index}>{menu}</li>));
 
   useEffect(() => {
     getVote();

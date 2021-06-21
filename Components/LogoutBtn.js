@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { connect } from "react-redux";
-import { setId, setLogin, setLoginBtnSz, setLoginFail } from "../store";
+import { setLogin, setLoginFail } from "../store";
 
 const btnColor = "#77ACF1";
 
-function LogoutBtn({ store, SetLoginBtnSz, SetLogin }) {
-  function LoginBtnPressIn() {
-    SetLoginBtnSz(0.98);
-    SetLogin(false);
-  }
+function LogoutBtn({ store, SetLogin }) {
+  const [btnSize, SetBtnSize] = useState(1);
 
+  function LoginBtnPressIn() {
+    SetBtnSize(0.98);
+  }
+  
   function LoginBtnPressOut() {
-    SetLoginBtnSz(1);
+    SetBtnSize(1);
+    SetLogin(false);
   }
 
   return (
@@ -20,9 +22,7 @@ function LogoutBtn({ store, SetLoginBtnSz, SetLogin }) {
       onPressIn={LoginBtnPressIn}
       onPressOut={LoginBtnPressOut}
     >
-      <View
-        style={[styles.loginBtn, { transform: [{ scale: store.loginBtnSz }] }]}
-      >
+      <View style={[styles.loginBtn, { transform: [{ scale: btnSize }] }]}>
         <Text style={styles.loginText}>로그아웃</Text>
       </View>
     </TouchableWithoutFeedback>
@@ -53,7 +53,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    SetLoginBtnSz: (size) => dispatch(setLoginBtnSz(size)),
     SetLogin: (isLogin) => dispatch(setLogin(isLogin)),
     SetLoginFail: (isLoginFail) => dispatch(setLoginFail(isLoginFail)),
   };
