@@ -1,12 +1,29 @@
 {
   "users": [
-      {
-          "id": "apple", 
-          "pw": "abcd"
-      },
-      {
-          "id": "banana", 
-          "pw": "abcd"
-      }
+    {
+      "id": "apple",
+      "pw": "abcd"
+    },
+    {
+      "id": "banana",
+      "pw": "abcd"
+    }
+  ],
+  "vote": [
+    {
+      "id": "apple",
+      "title": "color",
+      "options": ["blue", "red", "yellow"]
+    },
+    {
+      "id": "banana",
+      "title": "food",
+      "options": ["meat", "pizza", "chicken"]
+    },
+    {
+      "id": "cat",
+      "title": "time",
+      "options": ["morning", "night", "afternoon"]
+    }
   ]
 }

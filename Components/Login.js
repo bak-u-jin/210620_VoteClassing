@@ -1,7 +1,6 @@
 import React from "react";
 import { View, StyleSheet, SafeAreaView, Text, TextInput } from "react-native";
 import { connect } from "react-redux";
-import globalStyles from "../Components/globalStyles";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 import LoginBtn from "./LoginBtn";

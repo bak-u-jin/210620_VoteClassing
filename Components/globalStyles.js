@@ -9,4 +9,12 @@ export default globalStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
+  contentBox: {
+    width: 380,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    alignItems: "center",
+    padding: 20,
+  },
 });

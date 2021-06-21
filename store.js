@@ -48,10 +48,30 @@ const store = createSlice({
         isLoginFail: action.payload,
       };
     },
+    chooseVote: (state, action) => {
+      return {
+        ...state,
+        chooseVote: action.payload,
+        chooseOption: -1,
+      };
+    },
+    chooseOption: (state, action) => {
+      return {
+        ...state,
+        chooseOption: action.payload,
+      };
+    },
   },
 });
 
-export const { setId, setPw, setLoginBtnSz, setLogin, setLoginFail } =
-  store.actions;
+export const {
+  setId,
+  setPw,
+  setLoginBtnSz,
+  setLogin,
+  setLoginFail,
+  chooseVote,
+  chooseOption,
+} = store.actions;
 
 export default configureStore({ reducer: store.reducer });
