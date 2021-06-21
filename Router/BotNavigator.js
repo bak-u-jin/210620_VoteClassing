@@ -4,18 +4,10 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import {
-  StatusBar,
-  View,
-  StyleSheet,
-  SafeAreaView,
-  Dimensions,
-  TouchableWithoutFeedback,
-  Text,
-} from "react-native";
+
 import Create from "./Create";
-import Login from "./Login";
 import Search from "./Search";
+import User from "./User";
 
 const Tab = createMaterialBottomTabNavigator();
 const naviColor = "#77ACF1";
@@ -50,10 +42,10 @@ export default function BotNavigator() {
           }}
         />
         <Tab.Screen
-          name="Login"
-          component={Login}
+          name="User"
+          component={User}
           options={{
-            tabBarLabel: "Login",
+            tabBarLabel: "User",
             tabBarIcon: ({ color }) => (
               <Ionicons name="person-circle-outline" color={color} size={26} />
             ),
