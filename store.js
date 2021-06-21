@@ -14,6 +14,7 @@ const store = createSlice({
         id: action.payload,
       };
     },
+    
     setPw: (state, action) => {
       return {
         ...state,
@@ -21,13 +22,6 @@ const store = createSlice({
       };
     },
 
-    setLoginBtnSz: (state, action) => {
-      return {
-        ...state,
-        loginBtnSz: action.payload,
-      };
-    },
-    
     setLogin: (state, action) => {
       if (action.payload) {
         return {
@@ -68,7 +62,6 @@ const store = createSlice({
 export const {
   setId,
   setPw,
-  setLoginBtnSz,
   setLogin,
   setLoginFail,
   chooseVote,

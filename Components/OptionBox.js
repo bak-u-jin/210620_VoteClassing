@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { TouchableWithoutFeedback, View, Text, StyleSheet } from "react-native";
 import { connect } from "react-redux";
-import globalStyles from "../Components/globalStyles";
 import Fontisto from "react-native-vector-icons/Fontisto";
 import { chooseOption } from "../store";
 

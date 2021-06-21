@@ -22,22 +22,22 @@ export default function BotNavigator() {
         barStyle={{ backgroundColor: naviColor }}
       >
         <Tab.Screen
-          name="Search"
-          component={Search}
-          options={{
-            tabBarLabel: "Search",
-            tabBarIcon: ({ color }) => (
-              <FontAwesome name="search" color={color} size={26} />
-            ),
-          }}
-        />
-        <Tab.Screen
           name="Create"
           component={Create}
           options={{
             tabBarLabel: "Create",
             tabBarIcon: ({ color }) => (
               <AntDesign name="pluscircleo" color={color} size={24} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Search"
+          component={Search}
+          options={{
+            tabBarLabel: "Search",
+            tabBarIcon: ({ color }) => (
+              <FontAwesome name="search" color={color} size={26} />
             ),
           }}
         />

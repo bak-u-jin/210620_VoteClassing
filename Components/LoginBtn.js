@@ -8,6 +8,7 @@ const btnColor = "#77ACF1";
 
 function LoginBtn({ store, SetLogin, SetLoginFail }) {
   const [btnSize, SetBtnSize] = useState(1);
+
   async function LoginBtnPressIn() {
     SetBtnSize(0.98);
     await axios
@@ -31,9 +32,7 @@ function LoginBtn({ store, SetLogin, SetLoginFail }) {
       onPressIn={LoginBtnPressIn}
       onPressOut={LoginBtnPressOut}
     >
-      <View
-        style={[styles.loginBtn, { transform: [{ scale: btnSize }] }]}
-      >
+      <View style={[styles.loginBtn, { transform: [{ scale: btnSize }] }]}>
         <Text style={styles.loginText}>로그인</Text>
       </View>
     </TouchableWithoutFeedback>

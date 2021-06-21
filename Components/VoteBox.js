@@ -8,12 +8,11 @@ import OptionBox from "./OptionBox";
 import SelectBtn from "./SelectBtn";
 
 function VoteBox({ store, ChooseVote, vote, index }) {
-  const [toggleBox, SetToggleBox] = useState(false);
   const [btnSize, SetBtnSize] = useState(1);
   const { id, title, options } = vote;
 
   let optionsText = options.map((option, index) => (
-    <OptionBox option={option} index={index} />
+    <OptionBox key={index} option={option} index={index} />
   ));
 
   function VoteBoxPressIn() {
@@ -39,6 +38,9 @@ function VoteBox({ store, ChooseVote, vote, index }) {
         ]}
       >
         <Text style={styles.title}>{title}</Text>
+        <View style={styles.idBox}>
+          <Text style={styles.idText}>{id}</Text>
+        </View>
         {index == store.chooseVote && (
           <>
             {optionsText}
@@ -58,7 +60,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: "bold",
-    marginBottom: 20,
+  },
+
+  idBox: {
+    width: "100%",
+    alignItems: "flex-end",
+    marginBottom: 6,
+  },
+
+  idText: {
+    fontSize: 16,
   },
 
   optionBox: {

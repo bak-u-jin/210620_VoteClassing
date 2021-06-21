@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, StatusBar, Text, View } from "react-native";
+import { StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import globalStyles from "../Components/globalStyles";
 
 import VoteBox from "../Components/VoteBox";
 
 function Search() {
-  let votes;
   const [menuList, setMenuList] = useState(<></>);
+  let votes;
 
   async function getVote() {
     await axios
@@ -16,7 +16,9 @@ function Search() {
         votes = res.data;
       })
       .catch((err) => console.log(err));
-    setMenuList(votes.map((vote, index) => <VoteBox vote={vote} index={index}></VoteBox>));
+    setMenuList(
+      votes.map((vote, index) => <VoteBox key={index} vote={vote} index={index}></VoteBox>)
+    );
   }
 
   useEffect(() => {
@@ -25,9 +27,13 @@ function Search() {
 
   return (
     <SafeAreaView style={globalStyles.container}>
-      <View>{menuList}</View>
+      <ScrollView style={styles.scrollStyle}>{menuList}</ScrollView>
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  scrollStyle: { marginTop:10},
+});
 
 export default Search;

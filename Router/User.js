@@ -2,6 +2,7 @@ import React from "react";
 import { View, SafeAreaView } from "react-native";
 import { connect } from "react-redux";
 import globalStyles from "../Components/globalStyles";
+
 import Login from "../Components/Login";
 import UserInfo from "../Components/UserInfo";
 
