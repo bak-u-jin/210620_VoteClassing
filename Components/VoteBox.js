@@ -9,7 +9,7 @@ import SelectBtn from "./SelectBtn";
 
 function VoteBox({ store, ChooseVote, vote, index }) {
   const [btnSize, SetBtnSize] = useState(1);
-  const { id, title, options } = vote;
+  const { id, madeby, options } = vote;
 
   let optionsText = options.map((option, index) => (
     <OptionBox key={index} option={option} index={index} />
@@ -37,9 +37,9 @@ function VoteBox({ store, ChooseVote, vote, index }) {
           { transform: [{ scale: btnSize }] },
         ]}
       >
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>{id}</Text>
         <View style={styles.idBox}>
-          <Text style={styles.idText}>{id}</Text>
+          <Text style={styles.idText}>{madeby}</Text>
         </View>
         {index == store.chooseVote && (
           <>

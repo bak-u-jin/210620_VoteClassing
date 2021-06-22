@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { StyleSheet, SafeAreaView, ScrollView } from "react-native";
+import { StyleSheet, SafeAreaView, ScrollView, Text } from "react-native";
 import globalStyles from "../Components/globalStyles";
 
 import VoteBox from "../Components/VoteBox";
@@ -14,10 +14,13 @@ function Search() {
       .get(`http://localhost:3000/vote`)
       .then((res) => {
         votes = res.data;
+        console.log(votes);
       })
       .catch((err) => console.log(err));
     setMenuList(
-      votes.map((vote, index) => <VoteBox key={index} vote={vote} index={index}></VoteBox>)
+      votes.map((vote, index) => (
+        <VoteBox key={index} vote={vote} index={index}></VoteBox>
+      ))
     );
   }
 
@@ -33,7 +36,7 @@ function Search() {
 }
 
 const styles = StyleSheet.create({
-  scrollStyle: { marginTop:10},
+  scrollStyle: { marginTop: 10 },
 });
 
 export default Search;

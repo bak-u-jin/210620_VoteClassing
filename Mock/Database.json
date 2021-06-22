@@ -11,8 +11,8 @@
   ],
   "vote": [
     {
-      "id": "apple",
-      "title": "color",
+      "id": "color",
+      "madeby": "apple",
       "options": [
         "blue",
         "red",
@@ -20,8 +20,8 @@
       ]
     },
     {
-      "id": "banana",
-      "title": "food",
+      "id": "food",
+      "madeby": "banana",
       "options": [
         "meat",
         "pizza",
@@ -29,8 +29,8 @@
       ]
     },
     {
-      "id": "cat",
-      "title": "time",
+      "id": "time",
+      "madeby": "cat",
       "options": [
         "morning",
         "night",
@@ -40,6 +40,8 @@
   ],
   "result": [
     {
+      "0": 5,
+      "1": 1,
       "2": 1,
       "id": "color"
     },

@@ -14,7 +14,7 @@ const store = createSlice({
         id: action.payload,
       };
     },
-    
+
     setPw: (state, action) => {
       return {
         ...state,
@@ -56,6 +56,20 @@ const store = createSlice({
         chooseOption: action.payload,
       };
     },
+    setVoteStartTime: (state, action) => {
+      console.log("d", action.payload);
+      return {
+        ...state,
+        voteStartTime: action.payload,
+      };
+    },
+    setVoteEndTime: (state, action) => {
+      console.log("d", action.payload);
+      return {
+        ...state,
+        voteEndTime: action.payload,
+      };
+    },
   },
 });
 
@@ -66,6 +80,8 @@ export const {
   setLoginFail,
   chooseVote,
   chooseOption,
+  setVoteStartTime,
+  setVoteEndTime,
 } = store.actions;
 
 export default configureStore({ reducer: store.reducer });

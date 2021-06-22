@@ -1,0 +1,50 @@
+import { connect } from "react-redux";
+
+function SetToday(year, month, date) {
+  const today = new Date();
+  console.log(date, today.getDate());
+  if (
+    today.getFullYear() === year &&
+    today.getMonth() === month &&
+    today.getDate() == date
+  )
+    return "오늘";
+  else if (today.getDate() + 1 == date) return "내일";
+  else return `${year}.${month}.${date}`;
+}
+
+function ChangeAmPm(hour) {
+  if (hour > 12) return `오후 ${hour}`;
+  else return `오전 ${hour}`;
+}
+
+function FillZero(time) {
+  if (time < 10) return `0${time}`;
+  else return time;
+}
+
+function fillText(time) {
+  return `${SetToday(time[0], time[1], time[2])} ${ChangeAmPm(
+    FillZero(time[3])
+  )}:${FillZero(time[4])}`;
+}
+
+function TimeText({ store, isStart }) {
+  let text = "";
+
+  if (isStart) {
+    if (store.voteStartTime) text = fillText(store.voteStartTime);
+    else text = "시작시간";
+  } else {
+    if (store.voteEndTime) text = fillText(store.voteEndTime);
+    else text = "종료시간";
+  }
+
+  return text;
+}
+
+function mapStateToProps(state) {
+  return { store: state };
+}
+
+export default connect(mapStateToProps, null)(TimeText);

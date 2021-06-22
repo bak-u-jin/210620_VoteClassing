@@ -11,6 +11,7 @@ import {
 import { connect } from "react-redux";
 import globalStyles from "../Components/globalStyles";
 
+import SetTimeBtn from "../Components/SetTimeBtn";
 import CreateBtn from "../Components/CreateBtn";
 
 function Create({ store }) {
@@ -21,22 +22,14 @@ function Create({ store }) {
         contentContainerStyle={styles.scrollstyle}
       >
         <TextInput
-          style={styles.input}
+          style={styles.titleInput}
           value={store.id}
           onChangeText={(e) => SetId(e)}
           placeholder="투표주제를 입력해주세요"
         />
         <View style={styles.timeBox}>
-          <TouchableWithoutFeedback>
-            <View>
-              <Text>시작시간</Text>
-            </View>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback>
-            <View>
-              <Text>종료시간</Text>
-            </View>
-          </TouchableWithoutFeedback>
+          <SetTimeBtn isStart={true}/>
+          <SetTimeBtn isStart={false}/>
         </View>
         <TextInput
           style={styles.input}
@@ -80,10 +73,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  timeBox: {
-    flexDirection: "row",
-    justifyContent:"space-around",
-    width: "80%",
+  titleInput: {
+    fontSize: 24,
   },
 });
 

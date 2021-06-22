@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { connect } from "react-redux";
 import { setLogin, setLoginFail } from "../store";
+
 import axios from "axios";
 
 const btnColor = "#77ACF1";
@@ -9,18 +10,9 @@ const btnColor = "#77ACF1";
 function CreateBtn({ store, SetLogin, SetLoginFail }) {
   const [btnSize, SetBtnSize] = useState(1);
 
+
   async function LoginBtnPressIn() {
     SetBtnSize(0.98);
-    await axios
-      .get(`http://localhost:3000/users?id=${store.id}&pw=${store.pw}`)
-      .then((res) => {
-        if (res.data[0] === undefined) {
-          SetLoginFail(true);
-        } else {
-          SetLogin(true);
-        }
-      })
-      .catch((err) => console.log(err));
   }
 
   function LoginBtnPressOut() {
