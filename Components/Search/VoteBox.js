@@ -6,6 +6,7 @@ import { chooseVote } from "../Common/store";
 import globalStyles from "../Common/globalStyles";
 import OptionBox from "./OptionBox";
 import SelectBtn from "./SelectBtn";
+import DeleteBtn from "./DeleteBtn";
 
 function VoteBox({ store, ChooseVote, vote, index }) {
   const [btnSize, SetBtnSize] = useState(1);
@@ -37,6 +38,8 @@ function VoteBox({ store, ChooseVote, vote, index }) {
           { transform: [{ scale: btnSize }] },
         ]}
       >
+        <DeleteBtn index={index} title={id} madeby={madeby} />
+
         <Text style={styles.title}>{id}</Text>
         <View style={styles.idBox}>
           <Text style={styles.idText}>{madeby}</Text>
