@@ -36,8 +36,8 @@ function VoteBox({ store, vote, index, ChooseVote }) {
     >
       <View
         style={[
-          globalStyles.contentBox,
           styles.voteBox,
+          (canTime !== "ok") && styles.cantTime,
           { transform: [{ scale: btnSize }] },
         ]}
       >
@@ -63,6 +63,15 @@ function VoteBox({ store, vote, index, ChooseVote }) {
 const styles = StyleSheet.create({
   voteBox: {
     marginBottom: 10,
+    width: 380,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    alignItems: "center",
+    padding: 20,
+  },
+
+  cantTime: {
+    backgroundColor: "#e4e4e4",
   },
 
   title: {

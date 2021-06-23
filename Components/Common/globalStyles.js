@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const bgColor = "#e0e0e0";
+const bgColor = "#d0d0d0";
 
 export default globalStyles = StyleSheet.create({
   container: {

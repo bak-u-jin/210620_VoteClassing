@@ -22,16 +22,6 @@ export default function BotNavigator() {
         barStyle={{ backgroundColor: naviColor }}
       >
         <Tab.Screen
-          name="Create"
-          component={Create}
-          options={{
-            tabBarLabel: "Create",
-            tabBarIcon: ({ color }) => (
-              <AntDesign name="pluscircleo" color={color} size={24} />
-            ),
-          }}
-        />
-        <Tab.Screen
           name="Search"
           component={Search}
           options={{
@@ -41,6 +31,18 @@ export default function BotNavigator() {
             ),
           }}
         />
+        
+        <Tab.Screen
+          name="Create"
+          component={Create}
+          options={{
+            tabBarLabel: "Create",
+            tabBarIcon: ({ color }) => (
+              <AntDesign name="pluscircleo" color={color} size={24} />
+            ),
+          }}
+        />
+
         <Tab.Screen
           name="User"
           component={User}
