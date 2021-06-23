@@ -7,13 +7,14 @@ import {
   StyleSheet,
 } from "react-native";
 import { connect } from "react-redux";
+import { setVoteId } from "../Components/Common/store";
 import globalStyles from "../Components/Common/globalStyles";
 
 import SetTimeBtn from "../Components/Create/SetTimeBtn";
 import OptionList from "../Components/Create/OptionList";
-import CreateBtn from "../Components/Create/CreateBtn";
+import CreateVoteBtn from "../Components/Create/CreateVoteBtn";
 
-function Create({ store }) {
+function Create({ store, SetVoteId }) {
   return (
     <SafeAreaView style={globalStyles.container}>
       <ScrollView
@@ -22,8 +23,8 @@ function Create({ store }) {
       >
         <TextInput
           style={styles.titleInput}
-          value={store.id}
-          onChangeText={(e) => SetId(e)}
+          value={store.voteId}
+          onChangeText={(e) => SetVoteId(e)}
           placeholder="투표주제를 입력해주세요"
         />
         <View style={styles.timeBox}>
@@ -31,7 +32,7 @@ function Create({ store }) {
           <SetTimeBtn isStart={false} />
         </View>
         <OptionList />
-        <CreateBtn />
+        <CreateVoteBtn />
       </ScrollView>
     </SafeAreaView>
   );
@@ -61,7 +62,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    SetPw: (pw) => dispatch(setPw(pw)),
+    SetVoteId: (voteId) => dispatch(setVoteId(voteId)),
   };
 }
 

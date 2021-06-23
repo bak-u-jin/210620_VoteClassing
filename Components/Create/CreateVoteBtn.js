@@ -3,32 +3,20 @@ import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { connect } from "react-redux";
 import { setLogin, setLoginFail } from "../Common/store";
 
-import axios from "axios";
+import PostVote from "./PostVote";
 
 const btnColor = "#77ACF1";
 
-function CreateBtn({ store, SetLogin, SetLoginFail }) {
+function CreateVoteBtn({ store }) {
   const [btnSize, SetBtnSize] = useState(1);
 
-  async function PostVote() {
-    await axios
-      .post(`http://localhost:3000/vote`, {
-        id: "time",
-        time: [selectedDate.getMinutes(), selectedDate.getHours()],
-      })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
-  }
-
-  async function LoginBtnPressIn() {
+  function LoginBtnPressIn() {
     SetBtnSize(0.98);
   }
 
   function LoginBtnPressOut() {
     SetBtnSize(1);
-    PostVote();
+    PostVote(store);
   }
 
   return (
@@ -72,4 +60,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateBtn);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateVoteBtn);

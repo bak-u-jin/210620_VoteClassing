@@ -56,6 +56,12 @@ const store = createSlice({
         chooseOption: action.payload,
       };
     },
+    setVoteId: (state, action) => {
+      return {
+        ...state,
+        voteId: action.payload,
+      };
+    },
     setVoteStartTime: (state, action) => {
       return {
         ...state,
@@ -69,8 +75,7 @@ const store = createSlice({
       };
     },
     setOptions: (state, action) => {
-      console.log("action",action.payload);
-      let options = action.payload.index;
+      console.log(action.payload)
       return {
         ...state,
         [`${action.payload.index}`]: action.payload.optionText,
@@ -86,6 +91,7 @@ export const {
   setLoginFail,
   chooseVote,
   chooseOption,
+  setVoteId,
   setVoteStartTime,
   setVoteEndTime,
   setOptions,

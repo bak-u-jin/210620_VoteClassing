@@ -44,7 +44,7 @@ function VoteBox({ store, ChooseVote, vote, index }) {
         {index == store.chooseVote && (
           <>
             {optionsText}
-            <SelectBtn title={title} />
+            <SelectBtn title={id} />
           </>
         )}
       </View>

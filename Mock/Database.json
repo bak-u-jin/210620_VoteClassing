@@ -13,10 +13,81 @@
     {
       "id": "color",
       "madeby": "apple",
+      "startTime": [
+        2021,
+        5,
+        23,
+        8,
+        31
+      ],
+      "endTime": [
+        2021,
+        5,
+        24,
+        8,
+        31
+      ],
       "options": [
-        "blue",
         "red",
-        "yellow"
+        "green",
+        "blue"
+      ]
+    },
+    {
+      "id": "food",
+      "madeby": "banana",
+      "startTime": [
+        2021,
+        5,
+        23,
+        8,
+        31
+      ],
+      "endTime": [
+        2021,
+        5,
+        24,
+        8,
+        31
+      ],
+      "options": [
+        "meat",
+        "pizza",
+        "chicken"
+      ]
+    },
+    {
+      "id": "time",
+      "madeby": "banana",
+      "startTime": [
+        2021,
+        5,
+        23,
+        8,
+        31
+      ],
+      "endTime": [
+        2021,
+        5,
+        24,
+        8,
+        31
+      ],
+      "options": [
+        "morning",
+        "afternoon",
+        "night"
+      ]
+    }
+  ],
+  "result": [
+    {
+      "id": "color",
+      "madeby": "apple",
+      "options": [
+        "red",
+        "green",
+        "blue"
       ]
     },
     {
@@ -30,26 +101,12 @@
     },
     {
       "id": "time",
-      "madeby": "cat",
+      "madeby": "banana",
       "options": [
         "morning",
-        "night",
-        "afternoon"
+        "afternoon",
+        "night"
       ]
-    }
-  ],
-  "result": [
-    {
-      "0": 5,
-      "1": 1,
-      "2": 1,
-      "id": "color"
-    },
-    {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "id": "food"
     }
   ]
 }

@@ -15,7 +15,7 @@ function SetTimeBtn({ store, isStart, SetVoteStartTime, SetVoteEndTime }) {
   const [mode, setMode] = useState("date");
   const [date, setDate] = useState(new Date());
 
-  async function onChange(event, selectedDate) {
+  function onChange(event, selectedDate) {
     let time = [];
 
     if (selectedDate === undefined) return setShow(false);
@@ -40,7 +40,7 @@ function SetTimeBtn({ store, isStart, SetVoteStartTime, SetVoteEndTime }) {
     }
   }
 
-  async function LoginBtnPressIn() {
+  function LoginBtnPressIn() {
     SetBtnSize(0.98);
   }
 
