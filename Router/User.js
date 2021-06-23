@@ -1,10 +1,10 @@
 import React from "react";
 import { View, SafeAreaView } from "react-native";
 import { connect } from "react-redux";
-import globalStyles from "../Components/globalStyles";
+import globalStyles from "../Components/Common/globalStyles";
 
-import Login from "../Components/Login";
-import UserInfo from "../Components/UserInfo";
+import Login from "../Components/Login/Login";
+import UserInfo from "../Components/Login/UserInfo";
 
 function User({ store }) {
   return (

@@ -1,30 +1,20 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { connect } from "react-redux";
-import { setLogin, setLoginFail } from "../store";
-import axios from "axios";
+import { setLogin, setLoginFail } from "../Common/store";
 
 const btnColor = "#77ACF1";
 
-function LoginBtn({ store, SetLogin, SetLoginFail }) {
+function LogoutBtn({ store, SetLogin }) {
   const [btnSize, SetBtnSize] = useState(1);
 
-  async function LoginBtnPressIn() {
+  function LoginBtnPressIn() {
     SetBtnSize(0.98);
-    await axios
-      .get(`http://localhost:3000/users?id=${store.id}&pw=${store.pw}`)
-      .then((res) => {
-        if (res.data[0] === undefined) {
-          SetLoginFail(true);
-        } else {
-          SetLogin(true);
-        }
-      })
-      .catch((err) => console.log(err));
   }
-
+  
   function LoginBtnPressOut() {
     SetBtnSize(1);
+    SetLogin(false);
   }
 
   return (
@@ -33,7 +23,7 @@ function LoginBtn({ store, SetLogin, SetLoginFail }) {
       onPressOut={LoginBtnPressOut}
     >
       <View style={[styles.loginBtn, { transform: [{ scale: btnSize }] }]}>
-        <Text style={styles.loginText}>로그인</Text>
+        <Text style={styles.loginText}>로그아웃</Text>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -41,7 +31,7 @@ function LoginBtn({ store, SetLogin, SetLoginFail }) {
 
 const styles = StyleSheet.create({
   loginBtn: {
-    width: 220,
+    width: 160,
     height: 40,
     padding: 20,
     marginTop: 16,
@@ -68,4 +58,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginBtn);
+export default connect(mapStateToProps, mapDispatchToProps)(LogoutBtn);

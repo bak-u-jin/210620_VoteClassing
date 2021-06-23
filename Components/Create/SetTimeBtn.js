@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { connect } from "react-redux";
-import { setVoteStartTime, setVoteEndTime } from "../store";
+import { setVoteStartTime, setVoteEndTime } from "../Common/store";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
 import TimeText from "./TimeText";
@@ -20,7 +20,7 @@ function SetTimeBtn({ store, isStart, SetVoteStartTime, SetVoteEndTime }) {
 
     if (selectedDate === undefined) return setShow(false);
     setDate(selectedDate);
-    
+
     time = [
       selectedDate.getFullYear(),
       selectedDate.getMonth(),

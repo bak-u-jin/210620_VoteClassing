@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import LogoutBtn from "./LogoutBtn";
 
-function UseInfo({ store, }) {
+function UseInfo({ store }) {
   return (
     <>
       <Text>환영합니다</Text>

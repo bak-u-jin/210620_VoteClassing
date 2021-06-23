@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { TouchableWithoutFeedback, View, Text, StyleSheet } from "react-native";
 import { connect } from "react-redux";
-import globalStyles from "../Components/globalStyles";
-import { chooseVote } from "../store";
+import { chooseVote } from "../Common/store";
 
+import globalStyles from "../Common/globalStyles";
 import OptionBox from "./OptionBox";
 import SelectBtn from "./SelectBtn";
 

@@ -7,7 +7,7 @@ import {
   TextInput,
 } from "react-native";
 import { connect } from "react-redux";
-import { setOptions } from "../store";
+import { setOptions } from "../Common/store";
 
 const btnColor = "#77ACF1";
 function OptionList({ SetOptions }) {
@@ -22,7 +22,7 @@ function OptionList({ SetOptions }) {
     SetBtnSize(0.98);
   }
 
-  async function LoginBtnPressOut() {
+  function LoginBtnPressOut() {
     SetBtnSize(1);
     SetoptionsNum([...optionsNum, optionsNum.length + 1]);
   }
@@ -34,7 +34,7 @@ function OptionList({ SetOptions }) {
           key={index}
           onChangeText={(e) => (optionText = e)}
           onEndEditing={() => SetOptions({ index, optionText })}
-          placeholder={`투표항목${index}`}
+          placeholder={`투표항목 ${index}`}
         />
       ))
     );

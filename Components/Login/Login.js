@@ -1,10 +1,10 @@
 import React from "react";
-import { View, StyleSheet, SafeAreaView, Text, TextInput } from "react-native";
+import { View, StyleSheet, Text, TextInput } from "react-native";
 import { connect } from "react-redux";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 import LoginBtn from "./LoginBtn";
-import { setId, setPw } from "../store";
+import { setId, setPw } from "../Common/store";
 
 function Login({ store, SetId, SetPw }) {
   return (
@@ -39,7 +39,7 @@ function Login({ store, SetId, SetPw }) {
           </Text>
         </View>
       )}
-      
+
       <LoginBtn />
     </>
   );

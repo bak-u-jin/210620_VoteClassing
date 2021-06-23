@@ -5,15 +5,13 @@ import {
   View,
   TextInput,
   StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
 } from "react-native";
 import { connect } from "react-redux";
-import globalStyles from "../Components/globalStyles";
+import globalStyles from "../Components/Common/globalStyles";
 
-import SetTimeBtn from "../Components/SetTimeBtn";
-import OptionList from "../Components/OptionList";
-import CreateBtn from "../Components/CreateBtn";
+import SetTimeBtn from "../Components/Create/SetTimeBtn";
+import OptionList from "../Components/Create/OptionList";
+import CreateBtn from "../Components/Create/CreateBtn";
 
 function Create({ store }) {
   return (

@@ -2,7 +2,7 @@ import * as React from "react";
 import { StatusBar } from "react-native";
 import { Provider } from "react-redux";
 import BotNavigator from "./Router/BotNavigator";
-import store from "./store";
+import store from "./Components/Common/store";
 
 const statusBarColor = "#c0c0c0";
 

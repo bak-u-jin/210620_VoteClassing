@@ -1,20 +1,34 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { connect } from "react-redux";
-import { setLogin, setLoginFail } from "../store";
+import { setLogin, setLoginFail } from "../Common/store";
+
+import axios from "axios";
 
 const btnColor = "#77ACF1";
 
-function LogoutBtn({ store, SetLogin }) {
+function CreateBtn({ store, SetLogin, SetLoginFail }) {
   const [btnSize, SetBtnSize] = useState(1);
 
-  function LoginBtnPressIn() {
+  async function PostVote() {
+    await axios
+      .post(`http://localhost:3000/vote`, {
+        id: "time",
+        time: [selectedDate.getMinutes(), selectedDate.getHours()],
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
+
+  async function LoginBtnPressIn() {
     SetBtnSize(0.98);
   }
-  
+
   function LoginBtnPressOut() {
     SetBtnSize(1);
-    SetLogin(false);
+    PostVote();
   }
 
   return (
@@ -23,7 +37,7 @@ function LogoutBtn({ store, SetLogin }) {
       onPressOut={LoginBtnPressOut}
     >
       <View style={[styles.loginBtn, { transform: [{ scale: btnSize }] }]}>
-        <Text style={styles.loginText}>로그아웃</Text>
+        <Text style={styles.loginText}>투표작성</Text>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -31,7 +45,7 @@ function LogoutBtn({ store, SetLogin }) {
 
 const styles = StyleSheet.create({
   loginBtn: {
-    width: 160,
+    width: 220,
     height: 40,
     padding: 20,
     marginTop: 16,
@@ -58,4 +72,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogoutBtn);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateBtn);

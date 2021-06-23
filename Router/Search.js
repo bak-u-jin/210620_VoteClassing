@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { StyleSheet, SafeAreaView, ScrollView, Text } from "react-native";
-import globalStyles from "../Components/globalStyles";
+import globalStyles from "../Components/Common/globalStyles";
 
-import VoteBox from "../Components/VoteBox";
+import VoteBox from "../Components/Search/VoteBox";
 
 function Search() {
   const [menuList, setMenuList] = useState(<></>);

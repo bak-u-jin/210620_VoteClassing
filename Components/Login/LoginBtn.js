@@ -1,41 +1,26 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { connect } from "react-redux";
-import { setLogin, setLoginFail } from "../store";
-
+import { setLogin, setLoginFail } from "../Common/store";
 import axios from "axios";
 
 const btnColor = "#77ACF1";
 
-function CreateBtn({ store, SetLogin, SetLoginFail }) {
+function LoginBtn({ store, SetLogin, SetLoginFail }) {
   const [btnSize, SetBtnSize] = useState(1);
-
-  // const birthday = new Date("March 13, 08 04:20");
-  // console.log(birthday.getTime());
-  // let a = selectedDate.getTime();
-  // console.log(selectedDate.getMinutes());
-  // await axios
-  //   .post(`http://localhost:3000/vote`, {
-  //     id:"time",
-  //     time: [selectedDate.getMinutes(),selectedDate.getHours()],
-  //   })
-  //   .then((res) => {
-  //     console.log(res.data);
-  //   })
-  //   .catch((err) => console.log(err));
-  // await axios
-  //   .get(`http://localhost:3000/vote/time`)
-  //   .then((res) => {
-  //     console.log(res.data.time[1])
-  //   })
-  //   .catch((err) => console.log(err));
-
-  // let b = new Date().getMinutes;
-  // console.log(a.getMinutes,b)
-  // alert("Yeah" + a + "D" + b);
 
   async function LoginBtnPressIn() {
     SetBtnSize(0.98);
+    await axios
+      .get(`http://localhost:3000/users?id=${store.id}&pw=${store.pw}`)
+      .then((res) => {
+        if (res.data[0] === undefined) {
+          SetLoginFail(true);
+        } else {
+          SetLogin(true);
+        }
+      })
+      .catch((err) => console.log(err));
   }
 
   function LoginBtnPressOut() {
@@ -48,7 +33,7 @@ function CreateBtn({ store, SetLogin, SetLoginFail }) {
       onPressOut={LoginBtnPressOut}
     >
       <View style={[styles.loginBtn, { transform: [{ scale: btnSize }] }]}>
-        <Text style={styles.loginText}>투표작성</Text>
+        <Text style={styles.loginText}>로그인</Text>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -83,4 +68,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateBtn);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginBtn);
