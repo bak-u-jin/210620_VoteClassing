@@ -6,6 +6,7 @@ const store = createSlice({
     isLogin: false,
     isLoginFail: false,
     loginBtnSz: 1,
+    isRefresh: false,
   },
   reducers: {
     setId: (state, action) => {
@@ -75,10 +76,16 @@ const store = createSlice({
       };
     },
     setOptions: (state, action) => {
-      console.log(action.payload)
+      console.log(action.payload);
       return {
         ...state,
         [`${action.payload.index}`]: action.payload.optionText,
+      };
+    },
+    setRefresh: (state, action) => {
+      return {
+        ...state,
+        isRefresh: action.payload,
       };
     },
   },
@@ -95,6 +102,7 @@ export const {
   setVoteStartTime,
   setVoteEndTime,
   setOptions,
+  setRefresh,
 } = store.actions;
 
 export default configureStore({ reducer: store.reducer });

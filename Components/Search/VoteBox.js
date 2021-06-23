@@ -7,11 +7,12 @@ import globalStyles from "../Common/globalStyles";
 import OptionBox from "./OptionBox";
 import SelectBtn from "./SelectBtn";
 import DeleteBtn from "./DeleteBtn";
+import VoteTime from "./VoteTime";
+import TimeCompare from "./TimeCompare";
 
-function VoteBox({ store, ChooseVote, vote, index }) {
+function VoteBox({ store, vote, index, ChooseVote }) {
   const [btnSize, SetBtnSize] = useState(1);
-  const { id, madeby, options } = vote;
-
+  const { id, madeby, options, startTime, endTime } = vote;
   let optionsText = options.map((option, index) => (
     <OptionBox key={index} option={option} index={index} />
   ));
@@ -26,6 +27,8 @@ function VoteBox({ store, ChooseVote, vote, index }) {
     else ChooseVote(index);
   }
 
+  const canTime = TimeCompare(startTime, endTime);
+
   return (
     <TouchableWithoutFeedback
       onPressIn={VoteBoxPressIn}
@@ -39,11 +42,13 @@ function VoteBox({ store, ChooseVote, vote, index }) {
         ]}
       >
         <DeleteBtn index={index} title={id} madeby={madeby} />
-
         <Text style={styles.title}>{id}</Text>
-        <View style={styles.idBox}>
-          <Text style={styles.idText}>{madeby}</Text>
-        </View>
+        <VoteTime
+          madeby={madeby}
+          startTime={startTime}
+          endTime={endTime}
+          canTime={canTime}
+        />
         {index == store.chooseVote && (
           <>
             {optionsText}

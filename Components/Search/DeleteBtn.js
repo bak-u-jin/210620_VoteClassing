@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { connect } from "react-redux";
-import { setLogin, setLoginFail } from "../Common/store";
+import { setRefresh } from "../Common/store";
 import axios from "axios";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const iconColor = "#000";
 
-function DeleteBtn({ store, index, title, madeby }) {
+function DeleteBtn({ store, index, title, madeby, SetRefresh }) {
   const [btnSize, SetBtnSize] = useState(1);
 
   async function DeleteVote() {
@@ -15,6 +15,7 @@ function DeleteBtn({ store, index, title, madeby }) {
       .delete(`http://localhost:3000/vote/${title}`)
       .then((res) => {
         alert("투표가 삭제되었습니다.");
+        SetRefresh(true);
       })
       .catch((err) => console.log(err));
   }
@@ -67,8 +68,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    SetLogin: (isLogin) => dispatch(setLogin(isLogin)),
-    SetLoginFail: (isLoginFail) => dispatch(setLoginFail(isLoginFail)),
+    SetRefresh: (isRefresh) => dispatch(setRefresh(isRefresh)),
   };
 }
 
