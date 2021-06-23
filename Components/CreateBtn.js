@@ -10,6 +10,29 @@ const btnColor = "#77ACF1";
 function CreateBtn({ store, SetLogin, SetLoginFail }) {
   const [btnSize, SetBtnSize] = useState(1);
 
+  // const birthday = new Date("March 13, 08 04:20");
+  // console.log(birthday.getTime());
+  // let a = selectedDate.getTime();
+  // console.log(selectedDate.getMinutes());
+  // await axios
+  //   .post(`http://localhost:3000/vote`, {
+  //     id:"time",
+  //     time: [selectedDate.getMinutes(),selectedDate.getHours()],
+  //   })
+  //   .then((res) => {
+  //     console.log(res.data);
+  //   })
+  //   .catch((err) => console.log(err));
+  // await axios
+  //   .get(`http://localhost:3000/vote/time`)
+  //   .then((res) => {
+  //     console.log(res.data.time[1])
+  //   })
+  //   .catch((err) => console.log(err));
+
+  // let b = new Date().getMinutes;
+  // console.log(a.getMinutes,b)
+  // alert("Yeah" + a + "D" + b);
 
   async function LoginBtnPressIn() {
     SetBtnSize(0.98);

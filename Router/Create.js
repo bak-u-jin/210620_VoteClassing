@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 import globalStyles from "../Components/globalStyles";
 
 import SetTimeBtn from "../Components/SetTimeBtn";
+import OptionList from "../Components/OptionList";
 import CreateBtn from "../Components/CreateBtn";
 
 function Create({ store }) {
@@ -28,32 +29,10 @@ function Create({ store }) {
           placeholder="투표주제를 입력해주세요"
         />
         <View style={styles.timeBox}>
-          <SetTimeBtn isStart={true}/>
-          <SetTimeBtn isStart={false}/>
+          <SetTimeBtn isStart={true} />
+          <SetTimeBtn isStart={false} />
         </View>
-        <TextInput
-          style={styles.input}
-          value={store.id}
-          onChangeText={(e) => SetId(e)}
-          placeholder="투표항목1"
-        />
-        <TextInput
-          style={styles.input}
-          value={store.id}
-          onChangeText={(e) => SetId(e)}
-          placeholder="투표항목2"
-        />
-        <TextInput
-          style={styles.input}
-          value={store.id}
-          onChangeText={(e) => SetId(e)}
-          placeholder="투표항목3"
-        />
-        <TouchableWithoutFeedback>
-          <View>
-            <Text>투표항목+</Text>
-          </View>
-        </TouchableWithoutFeedback>
+        <OptionList />
         <CreateBtn />
       </ScrollView>
     </SafeAreaView>

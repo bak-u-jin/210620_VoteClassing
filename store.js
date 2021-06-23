@@ -57,17 +57,23 @@ const store = createSlice({
       };
     },
     setVoteStartTime: (state, action) => {
-      console.log("d", action.payload);
       return {
         ...state,
         voteStartTime: action.payload,
       };
     },
     setVoteEndTime: (state, action) => {
-      console.log("d", action.payload);
       return {
         ...state,
         voteEndTime: action.payload,
+      };
+    },
+    setOptions: (state, action) => {
+      console.log("action",action.payload);
+      let options = action.payload.index;
+      return {
+        ...state,
+        [`${action.payload.index}`]: action.payload.optionText,
       };
     },
   },
@@ -82,6 +88,7 @@ export const {
   chooseOption,
   setVoteStartTime,
   setVoteEndTime,
+  setOptions,
 } = store.actions;
 
 export default configureStore({ reducer: store.reducer });

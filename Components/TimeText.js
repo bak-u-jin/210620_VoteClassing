@@ -2,7 +2,6 @@ import { connect } from "react-redux";
 
 function SetToday(year, month, date) {
   const today = new Date();
-  console.log(date, today.getDate());
   if (
     today.getFullYear() === year &&
     today.getMonth() === month &&
