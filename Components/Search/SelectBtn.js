@@ -8,14 +8,9 @@ const btnColor = "#77ACF1";
 function SelectBtn({ store, title }) {
   const [btnSize, SetBtnSize] = useState(1);
 
-  function LoginBtnPressIn() {
-    SetBtnSize(0.98);
-  }
-
-  async function LoginBtnPressOut() {
-    SetBtnSize(1);
-
+  async function Vote(){
     let optionResult = [];
+
     await axios
       .get(`http://localhost:3000/result/${title}`)
       .then((res) => {
@@ -28,6 +23,33 @@ function SelectBtn({ store, title }) {
     await axios
       .patch(`http://localhost:3000/result/${title}`, context)
       .catch((err) => console.log(err));
+  }
+
+  async function FindVote() {
+    await axios
+    .get(`http://localhost:3000/result/${title}`)
+    .then((res) => {
+      for (let i = 0; res.data[i]; i++) {
+        let voteList = res.data[i];
+        console.log(voteList);
+        if (voteList.find((e) => e === store.id)) {
+          alert("이미 하신 투표입니다");
+          return 0;
+        }
+      }
+      Vote();
+    })
+    .catch((err) => console.log(err));
+  }
+
+  function LoginBtnPressIn() {
+    SetBtnSize(0.98);
+  }
+
+  function LoginBtnPressOut() {
+    SetBtnSize(1);
+    if (store.isLogin) FindVote();
+    else alert("로그인을 해주세요");
   }
 
   return (
