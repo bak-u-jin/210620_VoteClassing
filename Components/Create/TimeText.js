@@ -4,7 +4,7 @@ function SetToday(year, month, date) {
   const today = new Date();
   if (
     today.getFullYear() === year &&
-    today.getMonth() === month &&
+    today.getMonth() + 1 === month &&
     today.getDate() == date
   )
     return "오늘";
@@ -23,7 +23,7 @@ function FillZero(time) {
 }
 
 function fillText(time) {
-  return `${SetToday(time[0], time[1], time[2])} ${ChangeAmPm(
+  return `${SetToday(time[0], time[1] + 1, time[2])} ${ChangeAmPm(
     FillZero(time[3])
   )}:${FillZero(time[4])}`;
 }
