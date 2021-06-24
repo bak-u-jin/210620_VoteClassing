@@ -33,7 +33,9 @@ function OptionList({ SetOptions }) {
         <TextInput
           key={index}
           onChangeText={(e) => (optionText = e)}
-          onEndEditing={() => SetOptions({ index : index-1, optionText })}
+          onEndEditing={() => {
+            if (optionText) SetOptions({ index: index - 1, optionText });
+          }}
           placeholder={`투표항목 ${index}`}
         />
       ))
