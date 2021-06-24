@@ -7,7 +7,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 
 const iconColor = "#000";
 
-function DeleteBtn({ store, index, title, madeby, SetRefresh }) {
+function DeleteBtn({ store, index, title, madeby, GetVote }) {
   const [btnSize, SetBtnSize] = useState(1);
 
   async function DeleteVote() {
@@ -15,7 +15,7 @@ function DeleteBtn({ store, index, title, madeby, SetRefresh }) {
       .delete(`http://localhost:3000/vote/${title}`)
       .then((res) => {
         alert("투표가 삭제되었습니다.");
-        SetRefresh(true);
+        GetVote();
       })
       .catch((err) => console.log(err));
   }

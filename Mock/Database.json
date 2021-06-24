@@ -13,100 +13,40 @@
     {
       "id": "color",
       "madeby": "apple",
-      "startTime": [
-        2021,
-        5,
-        22,
-        8,
-        31
-      ],
-      "endTime": [
-        2021,
-        5,
-        22,
-        8,
-        31
-      ],
-      "options": [
-        "red",
-        "green",
-        "blue"
-      ]
+      "startTime": [2021, 5, 22, 8, 31],
+      "endTime": [2021, 5, 22, 8, 31],
+      "options": ["red", "green", "blue"]
     },
     {
       "id": "food",
       "madeby": "banana",
-      "startTime": [
-        2021,
-        5,
-        23,
-        8,
-        31
-      ],
-      "endTime": [
-        2021,
-        6,
-        24,
-        8,
-        31
-      ],
-      "options": [
-        "meat",
-        "pizza",
-        "chicken"
-      ]
+      "startTime": [2021, 5, 23, 8, 31],
+      "endTime": [2021, 6, 24, 8, 31],
+      "options": ["meat", "pizza", "chicken"]
     },
     {
       "id": "time",
       "madeby": "banana",
-      "startTime": [
-        2021,
-        6,
-        23,
-        8,
-        31
-      ],
-      "endTime": [
-        2021,
-        6,
-        24,
-        8,
-        31
-      ],
-      "options": [
-        "morning",
-        "afternoon",
-        "night"
-      ]
+      "startTime": [2021, 6, 23, 8, 31],
+      "endTime": [2021, 6, 24, 8, 31],
+      "options": ["morning", "afternoon", "night"]
     }
   ],
   "result": [
     {
       "id": "color",
       "madeby": "apple",
-      "options": [
-        "red",
-        "green",
-        "blue"
-      ]
+      "options": ["red", "green", "blue"]
     },
     {
       "id": "food",
       "madeby": "banana",
-      "options": [
-        "meat",
-        "pizza",
-        "chicken"
-      ]
+      "options": ["meat", "pizza", "chicken"]
     },
     {
       "id": "time",
       "madeby": "banana",
-      "options": [
-        "morning",
-        "afternoon",
-        "night"
-      ]
+      "options": ["morning", "afternoon", "night"]
     }
   ]
 }

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { StyleSheet, SafeAreaView, ScrollView, Text } from "react-native";
+import { StyleSheet, SafeAreaView, ScrollView, Button } from "react-native";
 import globalStyles from "../Components/Common/globalStyles";
 
 import VoteBox from "../Components/Search/VoteBox";
@@ -9,7 +9,7 @@ function Search() {
   const [menuList, setMenuList] = useState(<></>);
   let votes;
 
-  async function getVote() {
+  async function GetVote() {
     await axios
       .get(`http://localhost:3000/vote`)
       .then((res) => {
@@ -19,13 +19,18 @@ function Search() {
       .catch((err) => console.log(err));
     setMenuList(
       votes.map((vote, index) => (
-        <VoteBox key={index} vote={vote} index={index}></VoteBox>
+        <VoteBox
+          key={index}
+          vote={vote}
+          index={index}
+          GetVote={GetVote}
+        ></VoteBox>
       ))
     );
   }
 
   useEffect(() => {
-    getVote();
+    GetVote();
   }, []);
 
   return (

@@ -1,16 +1,21 @@
 import React, { useState } from "react";
-import { TouchableWithoutFeedback, View, Text, StyleSheet } from "react-native";
+import {
+  TouchableWithoutFeedback,
+  View,
+  Text,
+  StyleSheet,
+  Button,
+} from "react-native";
 import { connect } from "react-redux";
 import { chooseVote } from "../Common/store";
 
-import globalStyles from "../Common/globalStyles";
 import OptionBox from "./OptionBox";
 import SelectBtn from "./SelectBtn";
 import DeleteBtn from "./DeleteBtn";
 import VoteTime from "./VoteTime";
 import TimeCompare from "./TimeCompare";
 
-function VoteBox({ store, vote, index, ChooseVote }) {
+function VoteBox({ store, vote, index, ChooseVote, GetVote }) {
   const [btnSize, SetBtnSize] = useState(1);
   const { id, madeby, options, startTime, endTime } = vote;
   let optionsText = options.map((option, index) => (
@@ -37,11 +42,11 @@ function VoteBox({ store, vote, index, ChooseVote }) {
       <View
         style={[
           styles.voteBox,
-          (canTime !== "ok") && styles.cantTime,
+          canTime !== "ok" && styles.cantTime,
           { transform: [{ scale: btnSize }] },
         ]}
       >
-        <DeleteBtn index={index} title={id} madeby={madeby} />
+        <DeleteBtn index={index} title={id} madeby={madeby} GetVote={GetVote} />
         <Text style={styles.title}>{id}</Text>
         <VoteTime
           madeby={madeby}
