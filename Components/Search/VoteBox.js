@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  TouchableWithoutFeedback,
-  View,
-  Text,
-  StyleSheet,
-  Button,
-} from "react-native";
+import { TouchableWithoutFeedback, View, Text, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { chooseVote } from "../Common/store";
 
@@ -14,13 +8,11 @@ import SelectBtn from "./SelectBtn";
 import DeleteBtn from "./DeleteBtn";
 import VoteTime from "./VoteTime";
 import TimeCompare from "./TimeCompare";
+import VoteResult from "./VoteResult";
 
 function VoteBox({ store, vote, index, ChooseVote, GetVote }) {
   const [btnSize, SetBtnSize] = useState(1);
   const { id, madeby, options, startTime, endTime } = vote;
-  let optionsText = options.map((option, index) => (
-    <OptionBox key={index} option={option} index={index} />
-  ));
 
   function VoteBoxPressIn() {
     SetBtnSize(0.98);
@@ -33,6 +25,10 @@ function VoteBox({ store, vote, index, ChooseVote, GetVote }) {
   }
 
   const canTime = TimeCompare(startTime, endTime);
+
+  let optionsText = options.map((option, index) => (
+    <OptionBox key={index} option={option} index={index} />
+  ));
 
   return (
     <TouchableWithoutFeedback
@@ -54,12 +50,15 @@ function VoteBox({ store, vote, index, ChooseVote, GetVote }) {
           endTime={endTime}
           canTime={canTime}
         />
-        {index == store.chooseVote && (
-          <>
-            {optionsText}
-            <SelectBtn title={id} />
-          </>
-        )}
+        {index == store.chooseVote &&
+          (canTime == "late" ? (
+            <VoteResult title={id} />
+          ) : (
+            <>
+              {optionsText}
+              <SelectBtn title={id} />
+            </>
+          ))}
       </View>
     </TouchableWithoutFeedback>
   );
