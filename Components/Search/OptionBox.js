@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { chooseOption } from "../Common/store";
 import Fontisto from "react-native-vector-icons/Fontisto";
 
-function OptionBox({ store, option, index, ChooseOption }) {
+function OptionBox({ store, option, index, ChooseOption, can }) {
   function OptionpressOut() {
     if (index === store.chooseOption) {
       ChooseOption(-1);
@@ -14,21 +14,32 @@ function OptionBox({ store, option, index, ChooseOption }) {
   }
 
   return (
-    <TouchableWithoutFeedback onPressOut={OptionpressOut}>
-      <View
-        style={[
-          styles.optionBox,
-          index == store.chooseOption ? styles.chooseBox : styles.unChooseBox,
-        ]}
-      >
-        {index === store.chooseOption ? (
-          <Fontisto name="checkbox-active" color={"#f00"} size={26} />
-        ) : (
+    <>
+      {can == "ok" ? (
+        <TouchableWithoutFeedback onPressOut={OptionpressOut}>
+          <View
+            style={[
+              styles.optionBox,
+              index == store.chooseOption
+                ? styles.chooseBox
+                : styles.unChooseBox,
+            ]}
+          >
+            {index === store.chooseOption ? (
+              <Fontisto name="checkbox-active" color={"#f00"} size={26} />
+            ) : (
+              <Fontisto name="checkbox-passive" color={"#000"} size={26} />
+            )}
+            <Text style={styles.optionText}>{option}</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      ) : (
+        <View style={[styles.optionBox]}>
           <Fontisto name="checkbox-passive" color={"#000"} size={26} />
-        )}
-        <Text style={styles.optionText}>{option}</Text>
-      </View>
-    </TouchableWithoutFeedback>
+          <Text style={styles.optionText}>{option}</Text>
+        </View>
+      )}
+    </>
   );
 }
 const styles = StyleSheet.create({

@@ -75,7 +75,6 @@ const store = createSlice({
       };
     },
     setOptions: (state, action) => {
-      console.log(action.payload);
       return {
         ...state,
         [`${action.payload.index}`]: action.payload.optionText,

@@ -27,7 +27,7 @@ function VoteBox({ store, vote, index, ChooseVote, GetVote }) {
   const canTime = TimeCompare(startTime, endTime);
 
   let optionsText = options.map((option, index) => (
-    <OptionBox key={index} option={option} index={index} />
+    <OptionBox key={index} option={option} index={index} can={canTime} />
   ));
 
   return (
@@ -56,7 +56,7 @@ function VoteBox({ store, vote, index, ChooseVote, GetVote }) {
           ) : (
             <>
               {optionsText}
-              <SelectBtn title={id} />
+              {canTime == "ok" && <SelectBtn title={id} />}
             </>
           ))}
       </View>
@@ -81,27 +81,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: "bold",
-  },
-
-  idBox: {
-    width: "100%",
-    alignItems: "flex-end",
-    marginBottom: 6,
-  },
-
-  idText: {
-    fontSize: 16,
-  },
-
-  optionBox: {
-    width: "80%",
-    flexDirection: "row",
-    marginBottom: 16,
-  },
-
-  optionText: {
-    paddingHorizontal: 10,
-    fontSize: 18,
   },
 });
 

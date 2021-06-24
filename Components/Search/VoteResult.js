@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
 import axios from "axios";
+
 import OptionResult from "./OptionResult";
 
 function VoteResult({ title }) {
@@ -10,21 +10,31 @@ function VoteResult({ title }) {
     let arrayResult = [];
     let resultSum = 0;
     let optionName = [];
+    let mostOption = 0;
 
     await axios
       .get(`http://localhost:3000/result/${title}`)
       .then((res) => {
-        console.log("value", res.data);
         for (let i = 0; res.data[i]; i++) {
           optionName[i] = res.data.options[i];
           arrayResult[i] = res.data[i].length;
+          if (arrayResult[i] > mostOption) {
+            mostOption = i;
+            mostOption = arrayResult[i];
+          }
           resultSum += res.data[i].length;
         }
         setResult(
           arrayResult.map((res, index) => {
-            console.log("res", res);
+            let most;
+            if (res === mostOption) most = true;
             return (
-              <OptionResult key={index} res={res} name={optionName[index]} />
+              <OptionResult
+                key={index}
+                res={res}
+                name={optionName[index]}
+                most={most}
+              />
             );
           })
         );
@@ -41,14 +51,4 @@ function VoteResult({ title }) {
   return <>{result}</>;
 }
 
-function mapStateToProps(state) {
-  return { store: state };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    ChooseOption: (option) => dispatch(chooseOption(option)),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(VoteResult);
+export default VoteResult;
