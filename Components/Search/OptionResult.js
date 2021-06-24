@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 
 function OptionResult({ res, name, most }) {
   return (
-    <View style={styles.resultBox}>
+    <View style={[styles.resultBox, most && styles.mostBox]}>
       <Text
         style={[styles.text, styles.name]}
         ellipsizeMode="tail"
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
   resultBox: {
     flexDirection: "row",
     marginTop: 6,
+    borderRadius: 10,
   },
 
   text: {
@@ -32,6 +33,10 @@ const styles = StyleSheet.create({
     width: 200,
     marginRight: 5,
     overflow: "hidden",
+  },
+
+  mostBox: {
+    backgroundColor: "rgba(255,255,255,0.6)",
   },
 
   most: {
