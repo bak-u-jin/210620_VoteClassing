@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 import { setOptions } from "../Common/store";
 
 const btnColor = "#77ACF1";
-function OptionList({ SetOptions }) {
+function OptionList({ store, SetOptions }) {
   const [btnSize, SetBtnSize] = useState(1);
 
   const [optionsNum, SetoptionsNum] = useState([1, 2, 3]);
@@ -34,7 +34,12 @@ function OptionList({ SetOptions }) {
           key={index}
           onChangeText={(e) => (optionText = e)}
           onEndEditing={() => {
-            if (optionText) SetOptions({ index: index - 1, optionText });
+            if (optionText) {
+              SetOptions({ index: index - 1, optionText });
+              optionText = undefined;
+            } else{
+              SetOptions({ index: index - 1, undefined });
+            }
           }}
           placeholder={`투표항목 ${index}`}
         />
@@ -50,6 +55,7 @@ function OptionList({ SetOptions }) {
         onPressOut={LoginBtnPressOut}
       >
         <View style={[styles.btnStyle, { transform: [{ scale: btnSize }] }]}>
+          <Text style={styles.btnText}>항목 +</Text>
           <Text style={styles.btnText}>항목 +</Text>
         </View>
       </TouchableWithoutFeedback>

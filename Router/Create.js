@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
 
   titleInput: {
     fontSize: 24,
+    textAlign:"center"
   },
 });
 
