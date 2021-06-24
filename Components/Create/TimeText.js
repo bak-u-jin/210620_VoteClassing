@@ -13,8 +13,13 @@ function SetToday(year, month, date) {
 }
 
 function ChangeAmPm(hour) {
-  if (hour > 12) return `오후 ${hour}`;
-  else return `오전 ${hour}`;
+  if (hour >= 12) return `오후`;
+  else return `오전`;
+}
+
+function SetAmPmHour(time) {
+  if (time >= 12) time -= 12;
+  return time;
 }
 
 function FillZero(time) {
@@ -24,8 +29,8 @@ function FillZero(time) {
 
 function fillText(time) {
   return `${SetToday(time[0], time[1] + 1, time[2])} ${ChangeAmPm(
-    FillZero(time[3])
-  )}:${FillZero(time[4])}`;
+    time[3]
+  )} ${FillZero(SetAmPmHour(time[3]))}:${FillZero(time[4])}`;
 }
 
 function TimeText({ store, isStart }) {
