@@ -5,7 +5,8 @@
     "ios": "react-native run-ios",
     "web": "expo start --web",
     "start": "react-native start",
-    "Mock": "json-server --watch Mock/Database.json"
+    "Mock": "json-server --watch Mock/Database.json",
+    "dev": "concurrently \"adb -s emulator-5554 reverse tcp:3000 tcp:3000\" \"react-native run-android\""
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "^3.5.2",
@@ -31,7 +32,8 @@
     "redux": "^4.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@babel/core": "^7.9.0",
+    "concurrently": "^6.2.0"
   },
   "private": true
 }
