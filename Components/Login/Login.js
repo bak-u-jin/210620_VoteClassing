@@ -27,6 +27,7 @@ function Login({ store, SetId, SetPw }) {
           style={styles.input}
           onChangeText={(e) => SetPw(e)}
           placeholder="비밀번호를 입력해주세요"
+          secureTextEntry={true}
         />
       </View>
 

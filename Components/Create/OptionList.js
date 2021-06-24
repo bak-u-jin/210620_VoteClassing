@@ -56,7 +56,6 @@ function OptionList({ store, SetOptions }) {
       >
         <View style={[styles.btnStyle, { transform: [{ scale: btnSize }] }]}>
           <Text style={styles.btnText}>항목 +</Text>
-          <Text style={styles.btnText}>항목 +</Text>
         </View>
       </TouchableWithoutFeedback>
     </>
