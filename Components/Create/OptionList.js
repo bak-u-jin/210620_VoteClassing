@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 import { setOptions } from "../Common/store";
 
 const btnColor = "#77ACF1";
-function OptionList({ store, SetOptions }) {
+function OptionList({ SetOptions }) {
   const [btnSize, SetBtnSize] = useState(1);
 
   const [optionsNum, SetoptionsNum] = useState([1, 2, 3]);
@@ -37,7 +37,7 @@ function OptionList({ store, SetOptions }) {
             if (optionText) {
               SetOptions({ index: index - 1, optionText });
               optionText = undefined;
-            } else{
+            } else {
               SetOptions({ index: index - 1, undefined });
             }
           }}

@@ -8,7 +8,7 @@ import TimeText from "./TimeText";
 
 const btnColor = "#77ACF1";
 
-function SetTimeBtn({ store, isStart, SetVoteStartTime, SetVoteEndTime }) {
+function SetTimeBtn({ isStart, SetVoteStartTime, SetVoteEndTime }) {
   const [btnSize, SetBtnSize] = useState(1);
 
   const [show, setShow] = useState(false);
@@ -97,10 +97,6 @@ const styles = StyleSheet.create({
   },
 });
 
-function mapStateToProps(state) {
-  return { store: state };
-}
-
 function mapDispatchToProps(dispatch) {
   return {
     SetVoteStartTime: (time) => dispatch(setVoteStartTime(time)),
@@ -108,4 +104,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SetTimeBtn);
+export default connect(null, mapDispatchToProps)(SetTimeBtn);
