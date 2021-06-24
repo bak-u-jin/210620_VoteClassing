@@ -14,18 +14,19 @@ function SelectBtn({ store, title }) {
 
   async function LoginBtnPressOut() {
     SetBtnSize(1);
-    let voteSum;
+
+    let optionResult = [];
     await axios
       .get(`http://localhost:3000/result/${title}`)
       .then((res) => {
-        voteSum = res.data[`${store.chooseOption}`] + 1;
-        if (!res.data[`${store.chooseOption}`]) voteSum = 1;
+        const resData = res.data[`${store.chooseOption}`];
+        optionResult = [...resData, store.id];
       })
       .catch((err) => console.log(err));
 
-    const ballot = { [`${store.chooseOption}`]: voteSum };
+    const context = { [`${store.chooseOption}`]: optionResult };
     await axios
-      .patch(`http://localhost:3000/result/${title}`, ballot)
+      .patch(`http://localhost:3000/result/${title}`, context)
       .catch((err) => console.log(err));
   }
 

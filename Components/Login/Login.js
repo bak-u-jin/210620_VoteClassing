@@ -15,7 +15,6 @@ function Login({ store, SetId, SetPw }) {
         </View>
         <TextInput
           style={styles.input}
-          value={store.id}
           onChangeText={(e) => SetId(e)}
           placeholder="아이디를 입력해주세요"
         />
@@ -26,7 +25,6 @@ function Login({ store, SetId, SetPw }) {
         </View>
         <TextInput
           style={styles.input}
-          value={store.pw}
           onChangeText={(e) => SetPw(e)}
           placeholder="비밀번호를 입력해주세요"
         />

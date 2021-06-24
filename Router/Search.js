@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { StyleSheet, SafeAreaView, ScrollView, Button } from "react-native";
+import { StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import globalStyles from "../Components/Common/globalStyles";
 
 import VoteBox from "../Components/Search/VoteBox";
