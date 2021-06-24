@@ -9,6 +9,7 @@
       "pw": "abcd"
     }
   ],
+
   "vote": [
     {
       "id": "color",
@@ -80,6 +81,7 @@
       ]
     }
   ],
+
   "result": [
     {
       "0": [],
@@ -106,8 +108,7 @@
         "apple"
       ],
       "2": [
-        "apple",
-        null
+        "apple"
       ],
       "id": "food",
       "madeby": "banana",

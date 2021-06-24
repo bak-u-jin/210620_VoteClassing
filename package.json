@@ -5,7 +5,8 @@
     "ios": "react-native run-ios",
     "web": "expo start --web",
     "start": "react-native start",
-    "Mock": "json-server --watch Mock/Database.json"
+    "Mock": "json-server --watch Mock/Database.json",
+    "dev": "concurrently \"adb -s emulator-5554 reverse tcp:3000 tcp:3000\" \"react-native run-android\""
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "^3.5.2",
@@ -17,6 +18,7 @@
     "expo-splash-screen": "~0.10.2",
     "expo-status-bar": "~1.0.4",
     "expo-updates": "~0.5.4",
+    "json-server": "^0.16.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "~0.63.4",
