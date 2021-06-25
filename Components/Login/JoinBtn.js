@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
-import { connect } from "react-redux";
-import axios from "axios";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
+import React, {useState} from 'react';
+import {View, StyleSheet, TouchableWithoutFeedback, Text} from 'react-native';
+import {connect} from 'react-redux';
+import axios from 'axios';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import { setLogin } from "../Common/store";
+import {setLogin} from '../Common/store';
 
-function JoinBtn({ store, SetLogin }) {
+function JoinBtn({store, SetLogin}) {
   const [btnSize, SetBtnSize] = useState(1);
 
   async function JoinUser() {
@@ -16,7 +16,7 @@ function JoinBtn({ store, SetLogin }) {
         pw: `${store.pw}`,
       })
       .then((res) => {
-        alert("회원가입이 완료되었습니다");
+        alert('회원가입이 완료되었습니다');
         SetLogin(true);
       })
       .catch((err) => console.log(err));
@@ -27,7 +27,7 @@ function JoinBtn({ store, SetLogin }) {
       .get(`http://localhost:3000/users/?id=${store.id}`, {})
       .then((res) => {
         console.log(res.data);
-        if (res.data[0]) alert("이미 존재하는 아이디입니다");
+        if (res.data[0]) alert('이미 존재하는 아이디입니다');
         else JoinUser();
       })
       .catch((err) => console.log(err));
@@ -36,8 +36,8 @@ function JoinBtn({ store, SetLogin }) {
   async function CheckInfo() {
     if (store.id && store.pw) {
       GetUser();
-    } else if (!store.id) alert("가입할 아이디를 입력해주세요");
-    else alert("가입할 비밀번호를 입력해주세요");
+    } else if (!store.id) alert('가입할 아이디를 입력해주세요');
+    else alert('가입할 비밀번호를 입력해주세요');
   }
 
   function JoinBtnPressIn() {
@@ -52,14 +52,17 @@ function JoinBtn({ store, SetLogin }) {
   return (
     <View style={styles.joinBtnBox}>
       <TouchableWithoutFeedback
+        testID="JoinBtn"
         onPressIn={JoinBtnPressIn}
-        onPressOut={JoinBtnPressOut}
-      >
-        <View style={[styles.joinBtn, { transform: [{ scale: btnSize }] }]}>
+        onPressOut={JoinBtnPressOut}>
+        <View 
+        testID="JoinBox"
+        
+        style={[styles.joinBtn, {transform: [{scale: btnSize}]}]}>
           <FontAwesome
             name="user"
             style={styles.joinIcon}
-            color={"#000"}
+            color={'#000'}
             size={16}
           />
           <Text>회원가입</Text>
@@ -72,20 +75,20 @@ function JoinBtn({ store, SetLogin }) {
 const styles = StyleSheet.create({
   joinBtnBox: {
     width: 240,
-    alignItems: "flex-end",
+    alignItems: 'flex-end',
     marginBottom: 6,
   },
 
   joinBtn: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 
-  joinIcon: { marginRight: 4 },
+  joinIcon: {marginRight: 4},
 });
 
 function mapStateToProps(state) {
-  return { store: state };
+  return {store: state};
 }
 
 function mapDispatchToProps(dispatch) {
