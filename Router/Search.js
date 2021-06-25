@@ -5,16 +5,19 @@ import globalStyles from "../Components/Common/globalStyles";
 
 import VoteBox from "../Components/Search/VoteBox";
 
-function Search() {
+function Search({ navigation }) {
   const [menuList, setMenuList] = useState(<></>);
   let votes;
+
+  useEffect(() => {
+    navigation.addListener("tabPress", () => GetVote());
+  }, [navigation]);
 
   async function GetVote() {
     await axios
       .get(`http://localhost:3000/vote`)
       .then((res) => {
         votes = res.data;
-        console.log(votes);
       })
       .catch((err) => console.log(err));
     setMenuList(

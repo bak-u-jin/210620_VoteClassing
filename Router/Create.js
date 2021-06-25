@@ -15,7 +15,6 @@ import OptionList from "../Components/Create/OptionList";
 import CreateVoteBtn from "../Components/Create/CreateVoteBtn";
 
 function Create({ store, SetVoteId }) {
-  alert("D");
   return (
     <SafeAreaView style={globalStyles.container}>
       <ScrollView
