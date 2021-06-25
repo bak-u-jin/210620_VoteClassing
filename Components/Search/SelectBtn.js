@@ -8,7 +8,7 @@ const btnColor = "#77ACF1";
 function SelectBtn({ store, title }) {
   const [btnSize, SetBtnSize] = useState(1);
 
-  async function Vote(){
+  async function Vote() {
     let optionResult = [];
 
     await axios
@@ -27,19 +27,18 @@ function SelectBtn({ store, title }) {
 
   async function FindVote() {
     await axios
-    .get(`http://localhost:3000/result/${title}`)
-    .then((res) => {
-      for (let i = 0; res.data[i]; i++) {
-        let voteList = res.data[i];
-        console.log(voteList);
-        if (voteList.find((e) => e === store.id)) {
-          alert("이미 하신 투표입니다");
-          return 0;
+      .get(`http://localhost:3000/result/${title}`)
+      .then((res) => {
+        for (let i = 0; res.data[i]; i++) {
+          let voteList = res.data[i];
+          if (voteList.find((e) => e === store.id)) {
+            alert("이미 하신 투표입니다");
+            return 0;
+          }
         }
-      }
-      Vote();
-    })
-    .catch((err) => console.log(err));
+        Vote();
+      })
+      .catch((err) => console.log(err));
   }
 
   function LoginBtnPressIn() {

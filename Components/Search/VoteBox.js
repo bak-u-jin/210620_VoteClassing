@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { TouchableWithoutFeedback, View, Text, StyleSheet } from "react-native";
 import { connect } from "react-redux";
-import { chooseVote } from "../Common/store";
 
 import OptionBox from "./OptionBox";
 import SelectBtn from "./SelectBtn";
@@ -9,6 +8,7 @@ import DeleteBtn from "./DeleteBtn";
 import VoteTime from "./VoteTime";
 import TimeCompare from "./TimeCompare";
 import VoteResult from "./VoteResult";
+import { chooseVote } from "../Common/store";
 
 function VoteBox({ store, vote, index, ChooseVote, GetVote }) {
   const [btnSize, SetBtnSize] = useState(1);

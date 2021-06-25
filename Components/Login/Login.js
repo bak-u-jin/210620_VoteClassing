@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, TextInput } from "react-native";
 import { connect } from "react-redux";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
+import JoinBtn from "./JoinBtn";
 import LoginBtn from "./LoginBtn";
 import { setId, setPw } from "../Common/store";
 
@@ -38,7 +39,7 @@ function Login({ store, SetId, SetPw }) {
           </Text>
         </View>
       )}
-
+      <JoinBtn />
       <LoginBtn />
     </>
   );
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
   inputBox: {
     width: 240,
     height: 46,
-    marginBottom: 16,
+    marginBottom: 10,
     padding: 5,
     flexDirection: "row",
     alignItems: "center",

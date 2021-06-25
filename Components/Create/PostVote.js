@@ -50,7 +50,6 @@ async function PostFunc(store) {
     })
     .then((res) => {
       alert("투표가 완성되었습니다.");
-      console.log("vote done");
     })
     .catch((err) => {
       if (err.response.status === 500) alert("이미 만들어진 투표주제 입니다.");
@@ -62,9 +61,6 @@ async function PostFunc(store) {
       id: store.voteId,
       madeby: store.id,
       options: options,
-    })
-    .then((res) => {
-      console.log("result done");
     })
     .catch((err) => {
       console.log(err);

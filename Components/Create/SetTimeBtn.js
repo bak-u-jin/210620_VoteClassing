@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { connect } from "react-redux";
-import { setVoteStartTime, setVoteEndTime } from "../Common/store";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
 import TimeText from "./TimeText";
+import { setVoteStartTime, setVoteEndTime } from "../Common/store";
 
 const btnColor = "#77ACF1";
 

@@ -1,8 +1,9 @@
 import React from "react";
 import { TouchableWithoutFeedback, View, Text, StyleSheet } from "react-native";
 import { connect } from "react-redux";
-import { chooseOption } from "../Common/store";
 import Fontisto from "react-native-vector-icons/Fontisto";
+
+import { chooseOption } from "../Common/store";
 
 function OptionBox({ store, option, index, ChooseOption, can }) {
   function OptionpressOut() {

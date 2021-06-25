@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import { setOptions } from "../Common/store";
 
 const btnColor = "#77ACF1";
+
 function OptionList({ SetOptions }) {
   const [btnSize, SetBtnSize] = useState(1);
 

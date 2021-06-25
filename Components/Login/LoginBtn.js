@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { connect } from "react-redux";
-import { setLogin, setLoginFail } from "../Common/store";
 import axios from "axios";
+
+import { setLogin, setLoginFail } from "../Common/store";
 
 const btnColor = "#77ACF1";
 

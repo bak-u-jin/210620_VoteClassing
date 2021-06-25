@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
+import { StyleSheet, View, TouchableWithoutFeedback } from "react-native";
 import { connect } from "react-redux";
-import { setRefresh } from "../Common/store";
 import axios from "axios";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+
+import { setRefresh } from "../Common/store";
 
 const iconColor = "#000";
 

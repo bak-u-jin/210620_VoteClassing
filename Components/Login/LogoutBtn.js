@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { connect } from "react-redux";
+
 import { setLogin, setLoginFail } from "../Common/store";
 
 const btnColor = "#77ACF1";
 
-function LogoutBtn({ store, SetLogin }) {
+function LogoutBtn({ SetLogin }) {
   const [btnSize, SetBtnSize] = useState(1);
 
   function LoginBtnPressIn() {
     SetBtnSize(0.98);
   }
-  
+
   function LoginBtnPressOut() {
     SetBtnSize(1);
     SetLogin(false);
@@ -47,10 +48,6 @@ const styles = StyleSheet.create({
   },
 });
 
-function mapStateToProps(state) {
-  return { store: state };
-}
-
 function mapDispatchToProps(dispatch) {
   return {
     SetLogin: (isLogin) => dispatch(setLogin(isLogin)),
@@ -58,4 +55,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogoutBtn);
+export default connect(null, mapDispatchToProps)(LogoutBtn);

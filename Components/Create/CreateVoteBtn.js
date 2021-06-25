@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { connect } from "react-redux";
-import { setLogin, setLoginFail } from "../Common/store";
 
 import PostVote from "./PostVote";
 
@@ -53,11 +52,4 @@ function mapStateToProps(state) {
   return { store: state };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    SetLogin: (isLogin) => dispatch(setLogin(isLogin)),
-    SetLoginFail: (isLoginFail) => dispatch(setLoginFail(isLoginFail)),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CreateVoteBtn);
+export default connect(mapStateToProps, null)(CreateVoteBtn);
