@@ -119,17 +119,6 @@
         "morning",
         "afternoon",
         "night"
-      ],
-      "-1": []
-    },
-    {
-      "id": "votee",
-      "madeby": "apple",
-      "options": [
-        "aaa",
-        "ddd",
-        "bbb",
-        "qqq"
       ]
     }
   ]

@@ -10,6 +10,10 @@ function Search({ navigation }) {
   let votes;
 
   useEffect(() => {
+    GetVote();
+  }, []);
+
+  useEffect(() => {
     navigation.addListener("tabPress", () => GetVote());
   }, [navigation]);
 
@@ -31,10 +35,6 @@ function Search({ navigation }) {
       ))
     );
   }
-
-  useEffect(() => {
-    GetVote();
-  }, []);
 
   return (
     <SafeAreaView style={globalStyles.container}>
